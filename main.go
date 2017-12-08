@@ -73,6 +73,7 @@ func decode(w io.Writer, opts options, cli *http.Client) error {
 	f.Close()
 
 	enc := wsdlgo.NewEncoder(w)
+	enc.SetClient(cli)
 	if opts.Package != "" {
 		enc.SetPackageName(wsdlgo.PackageName(opts.Package))
 	}
